@@ -24,6 +24,13 @@ Steganography is the practice of representing information within another message
 
 Since the dawn of computers, techniques have been developed to embed messages in digital cover mediums. The message to conceal is often encrypted, then used to overwrite part of a much larger block of encrypted data or a block of random data (an unbreakable cipher like the [one-time pad](https://en.wikipedia.org/wiki/One-time_pad) generates ciphertexts that look perfectly random without the private key).
 
+### How digital steganography works:
+* Digital steganography uses a "cover" file to carry the hidden message. Common cover media include images, audio, video, or text. The secret message, sometimes encrypted for added security, is embedded by modifying the cover file in subtle ways that are typically imperceptible to a human observer. 
+* A prevalent technique is Least Significant Bit (LSB) steganography, which operates as follows: 
+    * Bit modification: Digital files are made of bytes. For each byte, the least significant bit (the last bit) can be changed without making a visually or audibly noticeable difference.
+    * Embedding data: A secret message is encoded into these LSBs. For example, in an image, a hidden message can be embedded in the LSBs of each pixel's color values (red, green, and blue).
+    * Resulting stego-object: The original file becomes a "stego-object" containing the hidden message. The recipient, who knows the technique and any necessary key, can extract the concealed information.
+
 ### Encryption:
 But here, not only is the information hidden, but it's also encrypted. Should an outsider gain access to the hidden text, they will find that they can't read it unless they have the passkey and the encryption algorithm.
 
