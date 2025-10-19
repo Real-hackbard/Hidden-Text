@@ -1,4 +1,4 @@
-# Hidden-Taxt:
+# Hidden-Text:
 
 </br>
 
