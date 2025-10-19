@@ -21,3 +21,56 @@ Steganography is the practice of representing information within another message
 </br>
 
 Since the dawn of computers, techniques have been developed to embed messages in digital cover mediums. The message to conceal is often encrypted, then used to overwrite part of a much larger block of encrypted data or a block of random data (an unbreakable cipher like the [one-time pad](https://en.wikipedia.org/wiki/One-time_pad) generates ciphertexts that look perfectly random without the private key).
+
+### Encryption:
+But here, not only is the information hidden, but it's also encrypted. Should an outsider gain access to the hidden text, they will find that they can't read it unless they have the passkey and the encryption algorithm.
+
+* Crypter
+
+```pascal
+function Crypter(const S: AnsiString): AnsiString;
+const
+  Map: array[AnsiChar] of Byte = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 62, 0, 0, 0, 63, 52, 53,
+    54, 55, 56, 57, 58, 59, 60, 61, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2,
+    3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+    20, 21, 22, 23, 24, 25, 0, 0, 0, 0, 0, 0, 26, 27, 28, 29, 30,
+    31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45,
+    46, 47, 48, 49, 50, 51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0
+  );
+var
+  I: LongInt;
+begin
+  case Length(S) of
+    2:
+    begin
+      I := Map[S[1]] + (Map[S[2]] shl 6);
+      SetLength(Result, 1);
+      Move(I, Result[1], Length(Result))
+    end;
+    3:
+    begin
+      I := Map[S[1]] + (Map[S[2]] shl 6) + (Map[S[3]] shl 12);
+      SetLength(Result, 2);
+      Move(I, Result[1], Length(Result))
+    end;
+    4:
+    begin
+      I := Map[S[1]] + (Map[S[2]] shl 6) + (Map[S[3]] shl 12) +
+        (Map[S[4]] shl 18);
+      SetLength(Result, 3);
+      Move(I, Result[1], Length(Result))
+    end;
+  end;
+end;
+```
+
+
