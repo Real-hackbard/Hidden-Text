@@ -77,4 +77,4 @@ end;
 
 </br>
 
-Anyone can implement their own string encryptor. However, it should be equipped with a passkey to make it significantly more difficult to view the text.
+### Anyone can implement their own string encryptor. However, it should be equipped with a passkey to make it significantly more difficult to view the text.
