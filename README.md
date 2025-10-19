@@ -16,7 +16,7 @@ Steganography is the practice of representing information within another message
 
 </br>
 
-![Hidden Taxt](https://github.com/user-attachments/assets/150426e5-892f-48be-8f2e-93c9ecaa2176)
+
 
 </br>
 
