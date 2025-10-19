@@ -25,7 +25,7 @@ Since the dawn of computers, techniques have been developed to embed messages in
 ### Encryption:
 But here, not only is the information hidden, but it's also encrypted. Should an outsider gain access to the hidden text, they will find that they can't read it unless they have the passkey and the encryption algorithm.
 
-* Crypter
+* Crypter Algorithm
 
 ```pascal
 function Crypter(const S: AnsiString): AnsiString;
